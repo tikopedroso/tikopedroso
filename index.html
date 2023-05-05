@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalculaIMC - JAVASCRIPT</title>
+</head>
+<body>
+    <input type="number" class="peso" name="peso" placeholder="insira seu peso .....">
+    <input type="number" class="altura" name="altura" placeholder="insira sua altura....">
+    <input type="button" onclick="calcularIMC();" value="Calcular">
+</body>
+
+<script type="text/javascript">
+    function calcularIMC(){ 
+    let peso = parseFloat(document.querySelector(".peso").value);
+    let altura = parseFloat(document.querySelector(".altura").value);
+    let IMC = peso /(altura * altura);
+        console.log(IMC.toFixed(2));      
+        if(IMC <= 18.5) {
+            MostraFrase("CLASSIFICAÇÃO: MAGREZA");
+        }else if(IMC <= 24.9){
+            MostraFrase("CLASSIFICAÇÃO: NORMAL" )
+        }else if(IMC <= 30){
+            MostraFrase("CLASSIFICAÇÃO: SOBREPESO" )
+        }else{
+            MostraFrase("CLASSIFICAÇÃO: OBESO")
+        };
+        document.write("o IMC do peso " + peso + " kg e altura de "+ altura + " é : " + IMC.toFixed(2));
+        document.write("<br><input type='button' onClick='window.location.reload()' value='Voltar'>");
+    }
+
+    function MostraFrase(frase){
+        document.write(frase);    
+        document.write("<br>");       
+    }
+</script>
+    
+</html>
